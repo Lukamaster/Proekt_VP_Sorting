@@ -20,7 +20,5 @@ namespace Proekt_VP_Sorting {
 
         }
 
-
-
     }
 }
