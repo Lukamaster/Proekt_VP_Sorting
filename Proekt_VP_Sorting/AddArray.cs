@@ -50,30 +50,38 @@ namespace Proekt_VP_Sorting {
         }
 
         private void radioRandom_CheckedChanged(object sender, EventArgs e) {
-            size = (int)nudSize.Value;
-            array = new int[size];
-            for (int i = 0; i < size; i++) {
-                array[i] = random.Next(1, 99);
-            }
+            radioRandom.Checked = true;
+            radioCustom.Checked = false;
 
         }
 
         private void radioCustom_CheckedChanged(object sender, EventArgs e) {
-            // TODO !!!!!!!
-            // 1 2 3 4 5
-            // 1,2,3,4,5
-            // 1, 2, 3, 4, 5
-
-            string[] arr = tbArray.Text.Split(' ');
-            size = arr.Length;
-            array = new int[size];
-            for (int i = 0; i < arr.Length; i++) {
-                array[i] = int.Parse(arr[i]);
-            }
+            radioCustom.Checked = true;
+            radioRandom.Checked = false;
         }
 
         private void btnSort_Click(object sender, EventArgs e) {
-            DialogResult = DialogResult.OK;
+            if (radioCustom.Checked) {
+                // TODO !!!!!!!
+                // 1 2 3 4 5
+                // 1,2,3,4,5
+                // 1, 2, 3, 4, 5
+
+                string[] arr = tbArray.Text.Split(' ');
+                size = arr.Length;
+                array = new int[size];
+                for (int i = 0; i < arr.Length; i++) {
+                    array[i] = int.Parse(arr[i]);
+                }
+            }
+            else {
+                size = (int)nudSize.Value;
+                array = new int[size];
+                for (int i = 0; i < size; i++) {
+                    array[i] = random.Next(1, 99);
+                }
+            }
+            
         }
     }
 }
